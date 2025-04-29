@@ -75,8 +75,8 @@ const styles = StyleSheet.create({
         top: 8,
         color: "hsla(0, 0%, 100%, 1)",
         fontSize: 40,
-        fontWeight: 800,
         textAlign: 'center',
+        fontFamily: "SpaceGrotesk"
     },
     setHome: {
         right: 24,
@@ -94,8 +94,8 @@ const styles = StyleSheet.create({
         fontSize: dynamicFontSize,
         lineHeight: Math.floor(dynamicFontSize * 1.05),
         fontVariant: ["proportional-nums"],
-        fontWeight: 900,
         textAlign: 'center',
+        fontFamily: "SpaceGrotesk"
     },
     serve: {
         position: "absolute",

@@ -46,6 +46,6 @@ const styles = StyleSheet.create({
     buttonText: {
         color: "hsla(0, 0%, 100%, 1)",
         fontSize: 20,
-        fontWeight: 'bold',
+        fontFamily: "SpaceGrotesk",
     },
 });

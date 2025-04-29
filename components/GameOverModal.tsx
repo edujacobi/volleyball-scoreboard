@@ -35,7 +35,7 @@ export default GameOverModal
 const styles = StyleSheet.create({
     title: {
         fontSize: 30,
-        fontWeight: 'bold',
+        fontFamily: "SpaceGrotesk",
         color: "hsla(0, 0%, 100%, 1)"
     },
     container: {

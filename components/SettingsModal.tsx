@@ -64,8 +64,8 @@ export default SettingsModal
 const styles = StyleSheet.create({
     title: {
         fontSize: 30,
-        fontWeight: 'bold',
-        color: "hsla(0, 0%, 100%, 1)"
+        color: "hsla(0, 0%, 100%, 1)",
+        fontFamily: "SpaceGrotesk",
     },
     container: {
         position: "absolute",
@@ -90,6 +90,6 @@ const styles = StyleSheet.create({
     text: {
         color: "hsla(0, 0%, 100%, 1)",
         fontSize: 20,
-        fontWeight: 'bold',
+        fontFamily: "SpaceGrotesk",
     },
 });
