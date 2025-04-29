@@ -3,6 +3,7 @@ import Colors from "../utils/colors";
 import {Player, useGame} from "../providers/GameProvider";
 import RoundButton from "./RoundButton";
 import {Ionicons} from "@expo/vector-icons";
+import {AutoSizeText, ResizeTextMode} from 'react-native-auto-size-text';
 
 interface Props {
     color?: Colors;
@@ -26,9 +27,12 @@ function Score(props: Readonly<Props>) {
                 icon={<Ionicons name="add-outline" size={24} color={"#FFFFFF"}/>}
             />
             <View style={styles.pointContainer}>
-                <Text style={styles.pointText}>
+                <AutoSizeText
+                    style={styles.pointText}
+                    mode={ResizeTextMode.group}
+                >
                     {game.getScore(props.player)}
-                </Text>
+                </AutoSizeText>
                 {game.currentPlayer == props.player &&
                   <Text style={styles.serve}>
                     🏐
@@ -49,10 +53,10 @@ const styles = StyleSheet.create({
     container: {
         flex: 0.5,
         flexDirection: 'row',
-        gap: 24,
+        gap: 8,
         alignItems: 'center',
         justifyContent: 'space-between',
-        padding: 24,
+        padding: 20,
         width: '100%',
         height: '100%',
         position: "relative",
@@ -86,22 +90,21 @@ const styles = StyleSheet.create({
     },
     pointContainer: {
         alignItems: 'center',
-        height: "60%",
         justifyContent: 'center',
+        flexShrink: 1,
+        maxHeight: "100%",
     },
     pointText: {
         color: "hsla(0, 0%, 100%, 1)",
-        fontSize: dynamicFontSize,
-        lineHeight: Math.floor(dynamicFontSize * 1.05),
-        fontVariant: ["proportional-nums"],
+        fontVariant: ["tabular-nums"],
         textAlign: 'center',
-        fontFamily: "SpaceGrotesk"
+        fontFamily: "SpaceGrotesk",
     },
     serve: {
         position: "absolute",
         display: "flex",
-        bottom: -24,
-        fontSize: 40,
+        bottom: 32,
+        fontSize: 30,
         textAlign: 'center',
     },
 });

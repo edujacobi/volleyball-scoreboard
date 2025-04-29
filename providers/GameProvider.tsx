@@ -58,15 +58,17 @@ export const GameProvider = ({children}: GameProviderProps) => {
         }
 
         if (team === 'Home') {
-            setScoreHome((prev) => prev + points);
-            if (scoreHome + points >= 25 && scoreHome - scoreVisitor >= 2) {
-                setSetsHome((prev) => prev + points);
+            const newScoreHome = scoreHome + points;
+            setScoreHome(newScoreHome);
+            if (newScoreHome >= 25 && newScoreHome - scoreVisitor >= 2) {
+                setSetsHome((prev) => prev + 1);
                 setGameFinished(true);
             }
         } else {
-            setScoreVisitor((prev) => prev + points);
-            if (scoreVisitor + points >= 25 && scoreVisitor - scoreHome >= 2) {
-                setSetsVisitor((prev) => prev + points);
+            const newScoreVisitor = scoreVisitor + points;
+            setScoreVisitor(newScoreVisitor);
+            if (newScoreVisitor >= 25 && newScoreVisitor - scoreHome >= 2) {
+                setSetsVisitor((prev) => prev + 1);
                 setGameFinished(true);
             }
         }

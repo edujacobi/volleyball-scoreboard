@@ -13,13 +13,15 @@
       "backgroundColor": "#0082FA"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.anonymous.simplevolleyboard"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#0082FA"
-      }
+      },
+      "package": "com.anonymous.simplevolleyboard"
     },
     "androidNavigationBar": {
       "visible": "sticky-immersive",
@@ -32,9 +34,16 @@
       [
         "expo-font",
         {
-          "fonts": ["./assets/fonts/SpaceGrotesk.ttf"]
+          "fonts": [
+            "./assets/fonts/SpaceGrotesk.ttf"
+          ]
         }
       ]
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "d93e7bab-b640-4e56-8944-a0f140f63d67"
+      }
+    }
   }
 }
