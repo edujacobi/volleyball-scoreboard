@@ -7,30 +7,27 @@ import {Ionicons} from "@expo/vector-icons";
 const GameOverModal = () => {
     const game = useGame();
     return (
-        <Modal
-            transparent={true}
-            statusBarTranslucent
-            visible={game.gameFinished}
-        >
-            <ScrollView
+        <>
+            {game.gameFinished &&
+              <ScrollView
                 style={styles.container}
                 contentContainerStyle={styles.modal}
-            >
+              >
                 <Text style={styles.title}>
-                    Game Over
+                  Game Over
                 </Text>
                 <RoundButton
-                    text="Next set"
-                    onPress={game.restartSet}
-                    icon={<Ionicons name="chevron-forward-outline" size={24} color={"#FFFFFF"}/>}
+                  text="Next set"
+                  onPress={game.restartSet}
+                  icon={<Ionicons name="chevron-forward-outline" size={24} color={"#FFFFFF"}/>}
                 />
                 <RoundButton
-                    text="Restart game"
-                    onPress={game.restartGame}
-                    icon={<Ionicons name="refresh-outline" size={24} color={"#FFFFFF"}/>}
+                  text="Restart game"
+                  onPress={game.restartGame}
+                  icon={<Ionicons name="refresh-outline" size={24} color={"#FFFFFF"}/>}
                 />
-            </ScrollView>
-        </Modal>
+              </ScrollView>}
+        </>
     )
 }
 export default GameOverModal
@@ -42,6 +39,8 @@ const styles = StyleSheet.create({
         color: "hsla(0, 0%, 100%, 1)"
     },
     container: {
+        position: "absolute",
+        inset: 0,
         flex: 1,
         backgroundColor: 'hsla(0, 0%, 0%, 0.75)',
     },

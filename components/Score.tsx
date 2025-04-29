@@ -10,7 +10,7 @@ interface Props {
 }
 
 const {width} = Dimensions.get('window');
-const dynamicFontSize = width * 0.25;
+const dynamicFontSize = Math.floor(width * 0.3);
 
 function Score(props: Readonly<Props>) {
     const game = useGame();
@@ -25,13 +25,15 @@ function Score(props: Readonly<Props>) {
                 onPress={() => game.changeScore(props.player, "increment")}
                 icon={<Ionicons name="add-outline" size={24} color={"#FFFFFF"}/>}
             />
-            <View>
+            <View style={styles.pointContainer}>
                 <Text style={styles.pointText}>
                     {game.getScore(props.player)}
                 </Text>
-                <Text style={styles.serve}>
-                    {game.currentPlayer == props.player ? '🏐' : ' '}
-                </Text>
+                {game.currentPlayer == props.player &&
+                  <Text style={styles.serve}>
+                    🏐
+                  </Text>
+                }
             </View>
             <RoundButton
                 onPress={() => game.changeScore(props.player, "decrement")}
@@ -70,25 +72,35 @@ const styles = StyleSheet.create({
     },
     setBase: {
         position: "absolute",
-        top: 0,
+        top: 8,
         color: "hsla(0, 0%, 100%, 1)",
         fontSize: 40,
-        fontWeight: 700,
+        fontWeight: 800,
         textAlign: 'center',
     },
     setHome: {
-        right: 16,
+        right: 24,
     },
     setVisitor: {
-        left: 16,
+        left: 24,
+    },
+    pointContainer: {
+        alignItems: 'center',
+        height: "60%",
+        justifyContent: 'center',
     },
     pointText: {
         color: "hsla(0, 0%, 100%, 1)",
         fontSize: dynamicFontSize,
-        fontWeight: 700,
+        lineHeight: Math.floor(dynamicFontSize * 1.05),
+        fontVariant: ["proportional-nums"],
+        fontWeight: 900,
         textAlign: 'center',
     },
     serve: {
+        position: "absolute",
+        display: "flex",
+        bottom: -24,
         fontSize: 40,
         textAlign: 'center',
     },

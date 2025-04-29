@@ -10,55 +10,53 @@ const SettingsModal = () => {
     const game = useGame();
     NavigationBar.setVisibilityAsync("hidden");
     return (
-        <Modal
-            visible={game.isMenuOpen}
-            transparent={true}
-            onRequestClose={() => game.setIsMenuOpen(false)}
-        >
-            <ScrollView
+        <>
+            {game.isMenuOpen &&
+              <ScrollView
                 style={styles.container}
                 contentContainerStyle={styles.modal}
                 nestedScrollEnabled={true}
-            >
+              >
                 <Text style={styles.title}>
-                    Settings
+                  Settings
                 </Text>
                 <TouchableOpacity
-                    style={styles.close}
-                    onPress={() => game.setIsMenuOpen(false)}
+                  style={styles.close}
+                  onPress={() => game.setIsMenuOpen(false)}
                 >
-                    <Ionicons name="close-outline" size={24} color={"#FFFFFF"}/>
+                  <Ionicons name="close-outline" size={24} color={"#FFFFFF"}/>
                 </TouchableOpacity>
 
                 <RoundButton
-                    text="Restart set"
-                    onPress={game.restartSet}
-                    icon={<Ionicons name="chevron-back-outline" size={24} color={"#FFFFFF"}/>}
+                  text="Restart set"
+                  onPress={game.restartSet}
+                  icon={<Ionicons name="chevron-back-outline" size={24} color={"#FFFFFF"}/>}
                 />
 
                 <RoundButton
-                    text="Restart game"
-                    onPress={game.restartGame}
-                    icon={<Ionicons name="refresh-outline" size={24} color={"#FFFFFF"}/>}
+                  text="Restart game"
+                  onPress={game.restartGame}
+                  icon={<Ionicons name="refresh-outline" size={24} color={"#FFFFFF"}/>}
                 />
 
                 <RoundButton
-                    text="Change sides"
-                    onPress={game.changeSides}
-                    icon={<Ionicons name="chevron-expand-outline" size={24} color={"#FFFFFF"}/>}
+                  text="Change sides"
+                  onPress={game.changeSides}
+                  icon={<Ionicons name="chevron-expand-outline" size={24} color={"#FFFFFF"}/>}
                 />
 
                 <Text style={styles.text}>
-                    Change color (Home)
+                  Change color (Home)
                 </Text>
                 <ColorSelector player={"Home"}/>
 
                 <Text style={styles.text}>
-                    Change color (Visitor)
+                  Change color (Visitor)
                 </Text>
                 <ColorSelector player={"Visitor"}/>
-            </ScrollView>
-        </Modal>
+              </ScrollView>}
+        </>
+
     )
 }
 export default SettingsModal
@@ -70,6 +68,8 @@ const styles = StyleSheet.create({
         color: "hsla(0, 0%, 100%, 1)"
     },
     container: {
+        position: "absolute",
+        inset: 0,
         flex: 1,
         backgroundColor: 'hsla(0, 0%, 0%, 0.75)',
     },
